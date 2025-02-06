@@ -64,6 +64,7 @@ const UserList: React.FC = () => {
         await updateUser(user.id, user);
       } else {
         const response = await createUser(user);
+        console.log(response);
       }
       const response = await fetchUsers();
       setUsers(response.data);

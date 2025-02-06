@@ -10,7 +10,6 @@ interface UserModalProps {
 const UserModal: React.FC<UserModalProps> = ({ isOpen, user, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({ name: "", email: "", profile_image: "" });
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [imageFile, setImageFile] = useState<File | null>(null);
 
   useEffect(() => {
     if (user) {
@@ -32,7 +31,6 @@ const UserModal: React.FC<UserModalProps> = ({ isOpen, user, onClose, onSubmit }
         const base64Image = reader.result as string;
         setPreviewImage(base64Image);
         setFormData((prevData) => ({ ...prevData, profile_image: base64Image }));
-        setImageFile(file);
       };
       reader.readAsDataURL(file);
     }
