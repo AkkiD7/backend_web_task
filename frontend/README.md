@@ -14,7 +14,7 @@ This is the frontend part of a MERN stack project.
 1. Clone the repository:
 
 ```sh
-git clone https://github.com/yourusername/your-repo-name.git
+git clone https://github.com/AkkiD7/backend_web_task.git
 ```
 
 2. Navigate to the frontend directory:
