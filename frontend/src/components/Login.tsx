@@ -5,6 +5,7 @@ import { loginUser } from "../services/api";
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async () => {
@@ -13,6 +14,7 @@ const Login: React.FC = () => {
       localStorage.setItem("token", response.data.token);
       navigate("/users");
     } catch (error) {
+      setError("Invalid email or password. Please try again.");
       console.error("Login failed:", error);
     }
   };
@@ -57,6 +59,11 @@ const Login: React.FC = () => {
                 className="w-full px-4 py-2 md:py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
               />
             </div>
+            {error && (
+            <div className="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+              {error}
+            </div>
+          )}
             <button
               onClick={handleLogin}
               className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 md:py-3 px-4 rounded-lg hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all"
