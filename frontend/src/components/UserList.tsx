@@ -19,6 +19,7 @@ const UserList: React.FC = () => {
     const fetchData = async () => {
       try {
         const response = await fetchUsers();
+        console.log(response.data);
         setUsers(response.data);
       } catch (error) {
         console.error("Error fetching users:", error);
@@ -106,8 +107,10 @@ const UserList: React.FC = () => {
                 >
                   <td className="py-3 px-4 border-b">
                     <img
-                      src={user.profile_image || "https://via.placeholder.com/50"}
-                      alt={user.name}
+                      src={
+                        user.profile_image || "https://via.placeholder.com/50"
+                      }
+                      alt={user.name || "Profile Image"}
                       className="w-10 h-10 rounded-full"
                     />
                   </td>

@@ -3,7 +3,7 @@ import pool from "../config/db";
 
 export const createUser = async (req: Request, res: Response): Promise<any> => {
   const { name, email, profile_image } = req.body;
-
+console.log(req.body)
   if (!name || !email) {
     return res.status(400).json({ message: "Name and email are required." });
   }

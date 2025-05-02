@@ -19,7 +19,7 @@ const createDatabaseAndTables = async () => {
     });
 
     await connection.query(`CREATE DATABASE IF NOT EXISTS ${process.env.DB_NAME};`);
-    console.log(`Database '${process.env.DB_NAME}' created or already exists.`);
+    // console.log(`Database '${process.env.DB_NAME}' created or already exists.`);
     connection.end();
 
     const createUsersTableQuery = `
@@ -41,10 +41,10 @@ const createDatabaseAndTables = async () => {
 
     const tableConnection = await pool.getConnection();
     await tableConnection.query(createUsersTableQuery);
-    console.log("'users' table created or already exists.");
+    // console.log("'users' table created or already exists.");
 
     await tableConnection.query(createAdminTableQuery);
-    console.log("'admin' table created or already exists.");
+    // console.log("'admin' table created or already exists.");
 
     const insertAdminQuery = `
       INSERT IGNORE INTO admin (email, password)
